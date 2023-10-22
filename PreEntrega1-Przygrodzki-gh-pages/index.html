@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/switzer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <title> TITA - ¡Anotate todo! </title>
+</head>
+
+<body>
+
+    <main class="container app">
+        <div class="todo__container animate__animated animate__fadeInDown">
+            <div class="titulo">
+                <h1 class="h1"> TITA </h1>
+                <span class="todo__span"> 🧀 CREANDO NOTITAS 🐁 </span>
+            </div>
+            <div class="fecha"></div>
+            <div class="todo__create">
+                <button
+                    class="btn__create animate__animated animate__heartBeat animate__delay-1s"></button>
+            </div>
+
+            <input type="text" class="inputSearch">
+        </div>
+
+        <div class="tareas__container"> <!-- CONTENDOR DE TAREAS --> </div>
+    </main>
+
+        <div class="modal modal--active">
+            <form id="taskForm" class="modal__content">
+                <div class="modal__content">
+                    <label for="modal__titulo" class="modal__titulo"> ¿Qué tarea tenés pendiente? </label>
+                    <input type="text" id="nueva-nota-nombre" name="nueva-nota-nombre" class="input__nueva__nota" />
+        
+                    <div class="modal__buttons">
+                        <button type="submit" class="btn__save"></button>
+                        <button type="reset" class="btn__cancel"></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    <script type="module" src="js/variables.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+
+</html>

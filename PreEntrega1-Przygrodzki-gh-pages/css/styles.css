@@ -1,0 +1,384 @@
+@import url('switzer.css');
+
+:root{
+    --bg-color-dg: #eeeeee;
+    --bg-color: #ff6cd5;
+    --bg-color-dg-2: #986cff;
+    --h1-color: #eef0ff;
+    --bg-dg-nota: linear-gradient(180deg, #79ff2c 20%, #dbefff 80%, #f7f7f7 100%);
+    --bg-dg-nota-2: linear-gradient(180deg, #ff6cd5 20%, #dbefff 80%, #f7f7f7 100%);
+    --crear-nota-txt: #242424;
+    --color-notita-primario: #7520ff;
+    --color-notita-secundario: #79ff2c; 
+    --titulo-notita: #232522;
+    
+    --border-color: #252525;
+    --border-color-2: #fff;
+}
+
+body{
+    font-family: 'Switzer-Variable';
+}
+
+.animate__animated .animate__heartBeat {
+    --animate-duration: 3s;
+}
+
+.overlay-blocker {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 9999; /* Asegura que esté por encima de todo */
+}
+
+.container{
+    min-height: 100vh;
+    width: 100%;
+    /* margin: 0 auto; */
+    padding: 3rem 3rem;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(180deg, var(--bg-color-dg) 0%, var(--bg-color-dg-2) 70%);
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.h1{
+    padding: 0;
+    margin: 0;
+}
+
+.titulo .h1{
+    font-size: clamp(3rem, 8vw, 8rem);
+    color: var(--h1-color);
+    font-weight: 900;
+}
+
+.todo__container {
+    text-align: center;
+    width: clamp(11rem, 100%, 120rem);
+    padding: 2rem;
+    background-color: var(--color-notita-primario);
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 2rem 2rem;
+    border: 1px var(--border-color) solid;
+    box-shadow: 3px 3px var(--border-color);
+    transition: box-shadow 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.todo__create{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.todo__span{
+    color: var(--crear-nota-txt);
+    padding: 0 1rem;
+    font-size: clamp(1rem, 6vw, 1.6rem);
+    font-weight: 600;
+}
+
+.btn__create{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    margin-top: 1rem;
+
+    background-image: url('../img/add-circle-fill.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    border-radius: 3rem;
+    border: 1px var(--border-color) solid;
+    box-shadow: 3px 3px var(--border-color);
+    transition: box-shadow 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.btn__create:hover{
+    border: 1px #9cff33 solid;
+    box-shadow: 3px 3px #9cff33;
+    background-image: url('../img/add-circle-line.svg');
+    transition: background-image 0.3s ease-in-out;
+    animation: fadeInOut 0.2s alternate;
+}
+
+
+.inputSearch{
+    color: #333333;
+    font-weight: 700;
+    background-color: #9cff33;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: clamp(5rem, 100%, 20rem);
+    height: 4rem;
+    margin-top: 3rem;
+    padding: 0 1.5rem 0 1rem;
+    
+    border-radius: 1rem;
+    border: 1px var(--border-color) solid;
+    box-shadow: 3px 3px var(--border-color);
+    transition: box-shadow 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+@keyframes fadeInOut {
+    0% {
+      background-image: url('../img/add-circle-fill.svg'); /* Imagen de inicio */
+    }
+    100% {
+      background-image: url('../img/add-circle-line.svg'); /* Imagen de hover */
+    }
+}
+
+.tareas__lista{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 2rem 0;
+}
+
+.tarea{
+    max-width: 100%;
+    background: var(--bg-dg-nota);
+    border-radius: 0 2rem 1rem 1rem;
+    border: 1px var(--border-color) solid;
+    box-shadow: 3px 3px var(--border-color);
+    transition: box-shadow 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.tareas__container{
+    width: clamp(11rem, 100%, 110rem);
+    border-radius: 2rem;
+    padding: 2rem;
+}
+
+.tarea__input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tarea__check{
+    margin-right: 1rem;
+    accent-color: #4460ff;
+    width: 3rem;
+    height: 3rem;
+}
+
+.tarea__items{
+    width: 100%;
+    padding: 20px;
+    word-wrap: break-word;
+    white-space: normal;
+    display: flex;
+    align-items: center;
+}
+
+
+.tarea__label{
+    color: var(--titulo-notita);
+    font-size: clamp(.5rem, 8vw, 2rem);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0 20px;
+}
+
+.tarea__btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    padding-top: 0.5rem;
+    margin-left: 1rem;
+    gap: .5rem;
+}
+
+.btn__edit{
+    background-image: url('../img/file-edit-line.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out;
+    margin: 0 2px;
+}
+
+.btn__edit:hover{
+    background-image: url('../img/file-edit-fill.svg');
+}
+
+
+.btn__delete{
+    background-image: url('../img/delete-bin-7-line.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out;
+    margin: 0 2px;
+}
+
+.btn__delete:hover{
+    background-image: url('../img//delete-bin-7-fill.svg');
+}
+
+
+@media (min-width: 768px) and (max-width: 991.98px){
+    
+}
+
+@media screen {
+    
+}
+
+/* MODAL */
+
+.modal{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35rem;
+    padding: 40px;
+    background-color: #cfcfcf;
+    color: white;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+
+    border-radius: 3rem;
+    border: 1px var(--border-color) solid;
+    box-shadow: 3px 3px var(--border-color);
+}
+
+.modal .modal--active{
+    top: 50%;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.modal__content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modal__titulo{
+    font-size: clamp(1rem, 6vw, 1.5rem);
+    text-align: center;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #0e0e0e;
+    padding: 0 2rem 2rem 2rem;
+}
+
+.modal__buttons{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+
+.input__nueva__nota{
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1.5rem;
+    padding-left: 2rem;
+    border-radius: 1rem 1rem 0 1rem;
+    border: 1px solid #0e0e0e;
+    width: 100%;
+    height: 50px;
+}
+
+.btn__save{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-top: 1rem;
+
+    background-image: url('../img/save-3-fill.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    border-radius: 3rem;
+    border: 1px var(--border-color) solid;
+    box-shadow: 3px 3px var(--border-color);
+    transition: box-shadow 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.btn__save{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-top: 1rem;
+
+    background-image: url('../img/save-3-line.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    border-radius: 1rem;
+    border: 1px var(--border-color) solid;
+    box-shadow: 3px 3px var(--border-color);
+    transition: box-shadow 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.btn__save:hover{
+    background-image: url('../img/save-3-fill.svg');
+}
+
+.btn__cancel{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-top: 1rem;
+
+    background-image: url('../img/close-circle-line.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    border-radius: 1rem;
+    border: 1px var(--border-color) solid;
+    box-shadow: 3px 3px var(--border-color);
+    transition: box-shadow 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.btn__cancel:hover{
+    background-image: url('../img/close-circle-fill.svg');
+}
+
+.btn__save-edit{
+    background-image: url('../img/save-2-fill.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}

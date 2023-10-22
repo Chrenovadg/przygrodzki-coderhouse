@@ -1,0 +1,72 @@
+/* Reset CSS básico */
+
+/* Establecer márgenes y rellenos en 0 para todos los elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+  }
+
+  html {
+    /* 1rem = 10px */
+    font-size: 62.5%;
+  }
+  
+  /* Establecer estilos de fuente y color básicos */
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: #333;
+  }
+  
+  /* Eliminar decoración de enlace y establecer colores */
+  a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  /* Establecer lista sin viñetas */
+  ul, ol {
+    list-style: none;
+  }
+  
+  /* Eliminar estilos de lista anidados */
+  li {
+    list-style: none;
+  }
+  
+  /* Restablecer estilos de encabezados */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+  }
+  
+  /* Restablecer estilos de elementos de formulario */
+  input, textarea, button {
+    font-family: inherit;
+  }
+  
+  /* Limpiar elementos flotantes (clearfix) */
+  .clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    color: inherit;
+    line-height: normal;
+    overflow: visible;
+    cursor: pointer;
+    text-align: left;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
